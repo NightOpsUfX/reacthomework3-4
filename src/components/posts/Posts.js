@@ -1,15 +1,11 @@
 import Post from "../post/Post";
 
-export default function Posts ({items}) {
-    console.log(items)
+export default function Posts ({item}) {
+    // console.log(item)
     return (
-        <div>
-            <h3>{items.title}</h3>
-            <p>{items.body}</p>
-            <hr/>
-
+        <div className={'userPostsWrapper'}>
             {
-                // items.map(post => <Post item={post}/>)
+                item.map(post => <Post key={item.id} item={post}/>)
             }
         </div>
     )
