@@ -19,4 +19,3 @@ const getComments = (postId) => axiosInstanceComments('/' + postId + '/comments'
 
 export {getUsers, getUser, getUserPosts, getComments};
 
-// https://jsonplaceholder.typicode.com/posts/2/comments
