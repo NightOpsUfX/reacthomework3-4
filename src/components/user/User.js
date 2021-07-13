@@ -45,24 +45,24 @@ import Posts from "../posts/Posts";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 
-export default function User({item}) {
+export default function User({user}) {
 
     let [posts, setUserPosts] = useState([]);
 
 
     useEffect(() => {
-        getUserPosts(item.id).then(response => setUserPosts([...response.data]))
+        getUserPosts(user.id).then(response => setUserPosts([...response.data]))
     }, [])
 
     return(
         <div className={'userItemWrapper'}>
             <div>
-                <h2>{item.name}</h2>
-                <p><Link to={'/users/' + item.id + '/posts'}>Show user's posts</Link></p>
+                <h2>{user.name}</h2>
+                <p><Link to={'/users/' + user.id + '/posts'}>Show user's posts</Link></p>
             </div>
             <div>
-                <Route exact path={'/users/' + item.id + '/posts'} render={() => {
-                    return <Posts posts={posts}/>
+                <Route exact path={'/users/' + user.id + '/posts'} render={() => {
+                    return <Posts posts={posts} userId={user.id}/>
                 }}/>
             </div>
         </div>

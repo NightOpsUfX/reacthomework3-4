@@ -21,12 +21,13 @@
 //////////////////////////////////////////////////
 import Post from "../post/Post";
 
-export default function Posts ({posts}) {
+export default function Posts ({posts, userId}) {
     // console.log(posts)
+    // console.log(userId)
     return (
         <div className={'userPostsWrapper'}>
             {
-                posts.map(post => <Post key={post.id} post={post}/>)
+                posts.map(post => <Post key={post.id} post={post} userId={userId}/>)
             }
         </div>
     )

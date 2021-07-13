@@ -34,9 +34,10 @@ export default function Comments ({comments}) {
 
     return (
         <div>
-            {
-                comments.map(comment => <Comment key={comment.id} comment={comment}/>)
-            }
+            1111111111
+            {/*{*/}
+            {/*    comments.map(comment => <Comment key={comment.id} comment={comment}/>)*/}
+            {/*}*/}
         </div>
     )
 }

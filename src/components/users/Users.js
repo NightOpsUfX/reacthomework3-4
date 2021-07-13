@@ -67,7 +67,7 @@ export default function Users () {
 
     return(
         <div className={'userNamesWrapper'}>
-            {users.map(value => <User key={value.id} item={value}/>)}
+            {users.map(user => <User key={user.id} user={user}/>)}
         </div>
     )
 }
