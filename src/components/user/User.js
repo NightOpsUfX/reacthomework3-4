@@ -60,13 +60,10 @@ export default function User({item}) {
                 <h2>{item.name}</h2>
                 <p><Link to={'/users/' + item.id + '/posts'}>Show user's posts</Link></p>
             </div>
-
             <div>
-
                 <Route exact path={'/users/' + item.id + '/posts'} render={() => {
                     return <Posts posts={posts}/>
                 }}/>
-
             </div>
         </div>
     )

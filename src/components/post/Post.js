@@ -51,14 +51,12 @@ export default function Post ({post}) {
                 <h3>{post.title}</h3>
                 <p>{post.body}</p>
                 <p><Link to={'/posts/' + post.id + '/comments'}>Show post's comments</Link></p>
-
             </div>
-
             <div>
-
                 <Route exact path={'/posts/' + post.id + '/comments'} render={() => {
 
-                    return <Comments comments={comments}/> }}/>
+                    return <Comments comments={comments}/>
+                }}/>
 
             </div>
 

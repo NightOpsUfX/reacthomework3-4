@@ -26,13 +26,16 @@
 ///////////////////////////////////////////////////
 //homework 4
 //////////////////////////////////////////////////
+
+import Comment from "../comment/Comment";
+
 export default function Comments ({comments}) {
     console.log(comments);
 
     return (
         <div>
             {
-                comments.map(comment => <div>lorem</div>)
+                comments.map(comment => <Comment key={comment.id} comment={comment}/>)
             }
         </div>
     )
