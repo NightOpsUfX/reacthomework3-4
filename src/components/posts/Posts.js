@@ -1,3 +1,5 @@
+
+
 ///////////////////////////////////////////////////
 //homework 3
 //////////////////////////////////////////////////
@@ -17,17 +19,16 @@
 ///////////////////////////////////////////////////
 //homework 4
 //////////////////////////////////////////////////
-
 import Post from "../post/Post";
-import {useEffect} from "react";
-import {getUserPosts} from "../../services/user.services";
 
-export default function Posts ({props, posts}) {
+
+export default function Posts ({posts}) {
     // console.log(posts)
-
     return (
         <div className={'userPostsWrapper'}>
-
+            {
+                posts.map(post => <Post key={post.id} post={post}/>)
+            }
         </div>
     )
 }

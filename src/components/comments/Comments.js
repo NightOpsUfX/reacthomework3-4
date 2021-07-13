@@ -26,3 +26,14 @@
 ///////////////////////////////////////////////////
 //homework 4
 //////////////////////////////////////////////////
+export default function Comments ({comments}) {
+    console.log(comments);
+
+    return (
+        <div>
+            {
+                comments.map(comment => <div>lorem</div>)
+            }
+        </div>
+    )
+}

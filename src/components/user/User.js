@@ -1,13 +1,3 @@
-import {getUserPosts} from "../../services/user.services";
-import {useEffect, useState} from "react";
-import Posts from "../posts/Posts";
-import Post from "../post/Post";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 
 
 // export default function User({item}) {
@@ -49,31 +39,34 @@ import {
 ///////////////////////////////////////////////////
 //homework 4
 //////////////////////////////////////////////////
+import {getUserPosts} from "../../services/user.services";
+import {useEffect, useState} from "react";
+import Posts from "../posts/Posts";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+
 
 export default function User({item}) {
-    // console.log(item)
+
     let [posts, setUserPosts] = useState([]);
-    // console.log(posts)
+
 
     useEffect(() => {
         getUserPosts(item.id).then(response => setUserPosts([...response.data]))
     }, [])
 
     return(
-        <div>
+        <div className={'userItemWrapper'}>
             <div>
-                <p>{item.name}</p>
-                <p><Link to={'/posts'}>Show user's posts</Link></p>
+                <h2>{item.name}</h2>
+                <p><Link to={'/users/' + item.id + '/posts'}>Show user's posts</Link></p>
             </div>
 
             <div>
-                <Switch>
-                    <Route path={'/posts'} render={(props) => {
-                        // console.log(props)
-                        // console.log(posts)
-                        return <Posts {...props} posts={posts}/>
-                    }}/>
-                </Switch>
+
+                <Route exact path={'/users/' + item.id + '/posts'} render={() => {
+                    return <Posts posts={posts}/>
+                }}/>
+
             </div>
         </div>
     )

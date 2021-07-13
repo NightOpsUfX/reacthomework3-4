@@ -1,9 +1,4 @@
-import {useEffect, useState} from "react";
-import {getUsers} from "../../services/user.services";
-import {getUserPosts} from "../../services/user.services";
-import Posts from "../posts/Posts";
-import User from "../user/User";
-import {Switch} from "react-router-dom";
+
 
 // export default function Users () {
 //
@@ -54,26 +49,25 @@ import {Switch} from "react-router-dom";
 ///////////////////////////////////////////////////
 //homework 4
 //////////////////////////////////////////////////
+import {useEffect, useState} from "react";
+import {getUsers} from "../../services/user.services";
+import User from "../user/User";
+import {Switch} from "react-router-dom";
+import {getUserPosts} from "../../services/user.services";
+import Posts from "../posts/Posts";
+
+
 export default function Users () {
 
     let [users, setUsers] = useState([]);
-
 
     useEffect(() => {
         getUsers().then(value => setUsers([...value.data]))
     }, []);
 
-
     return(
-
         <div className={'userNamesWrapper'}>
-
-                {users.map(value => <User key={value.id} item={value}/>)}
-
-
+            {users.map(value => <User key={value.id} item={value}/>)}
         </div>
-
-
-
     )
 }

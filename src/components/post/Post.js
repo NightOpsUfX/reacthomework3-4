@@ -29,3 +29,40 @@
 ///////////////////////////////////////////////////
 //homework 4
 //////////////////////////////////////////////////
+import {Link, Route} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getComments} from "../../services/user.services";
+import Comments from "../comments/Comments";
+
+
+export default function Post ({post}) {
+
+    let [comments, setPostComments] = useState([]);
+
+    useEffect(() => {
+        getComments(post.id).then(response => setPostComments([...response.data]))
+    }, [])
+
+    // console.log(comments)
+
+    return(
+        <div>
+            <div>
+                <h3>{post.title}</h3>
+                <p>{post.body}</p>
+                <p><Link to={'/posts/' + post.id + '/comments'}>Show post's comments</Link></p>
+
+            </div>
+
+            <div>
+
+                <Route exact path={'/posts/' + post.id + '/comments'} render={() => {
+
+                    return <Comments comments={comments}/> }}/>
+
+            </div>
+
+        </div>
+
+    )
+}
