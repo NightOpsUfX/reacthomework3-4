@@ -30,10 +30,9 @@
 import Comment from "../comment/Comment";
 
 export default function Comments ({comments}) {
-    console.log(comments);
 
     return (
-        <div>
+        <div className={'userPostCommentsWrapper'}>
             {
                 comments.map(comment => <Comment key={comment.id} comment={comment}/>)
             }

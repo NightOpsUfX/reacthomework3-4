@@ -52,9 +52,6 @@
 import {useEffect, useState} from "react";
 import {getUsers} from "../../services/user.services";
 import User from "../user/User";
-import {Switch} from "react-router-dom";
-import {getUserPosts} from "../../services/user.services";
-import Posts from "../posts/Posts";
 
 
 export default function Users () {

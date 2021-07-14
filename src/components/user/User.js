@@ -49,19 +49,17 @@ export default function User({user}) {
 
     let [posts, setUserPosts] = useState([]);
 
-
     useEffect(() => {
         getUserPosts(user.id).then(response => setUserPosts([...response.data]))
     }, [])
 
     return(
         <div className={'userItemWrapper'}>
-            <div>
+            <div className={'userTitleWrapper'}>
                 <h2>{user.name}</h2>
                 <p><Link to={'/users/' + user.id + '/posts'}>Show user's posts</Link></p>
-            </div>
-            <div>
-                <Route exact path={'/users/' + user.id + '/posts'} render={() => {
+
+                <Route path={'/users/' + user.id + '/posts'} render={() => {
                     return <Posts posts={posts} userId={user.id}/>
                 }}/>
             </div>

@@ -22,8 +22,7 @@
 import Post from "../post/Post";
 
 export default function Posts ({posts, userId}) {
-    // console.log(posts)
-    // console.log(userId)
+
     return (
         <div className={'userPostsWrapper'}>
             {

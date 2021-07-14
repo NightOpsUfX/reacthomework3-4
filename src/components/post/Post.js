@@ -36,32 +36,25 @@ import Comments from "../comments/Comments";
 
 
 export default function Post ({post, userId}) {
-    console.log(userId)
+
     let [comments, setPostComments] = useState([]);
 
     useEffect(() => {
         getComments(post.id).then(response => setPostComments([...response.data]))
     }, [])
 
-    // console.log(comments)
-
-    return(
-        <div>
-            <div>
+     return(
+        <div className={'userPostItemMainWrapper'}>
+            <div className={'userPostItemInnerWrapper'}>
                 <h3>{post.title}</h3>
                 <p>{post.body}</p>
                 <p><Link to={'/users/' + userId + '/posts/' + post.id + '/comments'}>Show post's comments</Link></p>
             </div>
-            <div>
-                <Switch>
-                    <Route exact path={'/users/' + userId + '/posts/' + post.id + '/comments'} render={() => {
-
-                        return <Comments comments={comments}/>
-                    }}/>
-                </Switch>
-            </div>
-
+            <Switch>
+                <Route path={'/users/' + userId + '/posts/' + post.id + '/comments'} render={() => {
+                    return <Comments comments={comments}/>
+                }}/>
+            </Switch>
         </div>
-
     )
 }
